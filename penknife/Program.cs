@@ -4,25 +4,48 @@ namespace penknife
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main(string[] arguments)
         {
+            string[] args;
+            args = new string[3] { "count", "lolololol", "lo"};
+
+            /*
+            string arguments = "";
+            foreach(string item in args)
+            {
+                arguments.Insert(arguments.Length - 1, item);
+            }
+            Console.WriteLine(arguments);
+            */
             if (args.Length == 0)
             {
-                // Display the menu with different options and stuff
+                Console.WriteLine("empty arguments");
             }
-
-            if ((args[0].Equals("length") || args[0].Equals("size")) && args.Length == 2)
-                Console.Write("\n> " + Functions.Length(args[1]));
-
-            else if (args[0].Equals("reverse"))
+            else
             {
-                if (args[1].Equals(null))
-                    Console.WriteLine("Reverse requires a string, use. use penknife -reverse string");
-                else
-                    Console.Write("\n> " + Functions.Reverse(args[1]));
-            }
-                
+                if (args.Length == 2)
+                {
+                    switch (args[0])
+                    {
+                        case "length":
+                            Console.WriteLine("> " + Functions.Length(args[1]));
+                            break;
+                        case "reverse":
+                            Console.WriteLine("> " + Functions.Reverse(args[1]));
+                            break;
+                    }
+                }
 
+                else if (args.Length == 3)
+                {
+                    switch(args[0])
+                    {
+                        case "count":
+                            Console.WriteLine("> " + Functions.Count(args[1], args[2].ToCharArray()));
+                            break;
+                    }
+                }
+            }
         }
     }
 }
