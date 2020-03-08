@@ -6,7 +6,7 @@ namespace penknife
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            
         }
     }
 }
