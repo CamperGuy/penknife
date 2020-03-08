@@ -17,7 +17,7 @@ namespace penknife
         {
             char[] CharArray = word.ToCharArray();
             Array.Reverse(CharArray);
-            return CharArray.ToString();
+            return new string(CharArray);
         }
 
         public static int Count(string word, char[] characters)

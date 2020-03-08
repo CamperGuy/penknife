@@ -4,19 +4,8 @@ namespace penknife
 {
     class Program
     {
-        static void Main(string[] arguments)
+        static void Main(string[] args)
         {
-            string[] args;
-            args = new string[3] { "count", "lolololol", "lo"};
-
-            /*
-            string arguments = "";
-            foreach(string item in args)
-            {
-                arguments.Insert(arguments.Length - 1, item);
-            }
-            Console.WriteLine(arguments);
-            */
             if (args.Length == 0)
             {
                 Console.WriteLine("empty arguments");
