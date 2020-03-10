@@ -43,5 +43,24 @@ namespace penknife
             }
             return amount;
         }
+
+        public static string ConvertBase(string number, string format)
+        {
+
+            if (number.StartsWith("0b") && (format.StartsWith("0d") || format.StartsWith("decimal")))
+            {
+                number = number.Remove(0, 2);
+                Console.WriteLine("Binary" + number);
+                return "Decimal: " + Convert.ToInt32(number, 2).ToString("D");
+            }
+            else if (number.StartsWith("0b") && (format.StartsWith("0x") || format.StartsWith("hex")))
+            {
+                number = number.Remove(0, 2);
+                Console.WriteLine("Binary: " + number);
+                return "Hex: " + Convert.ToInt32(number, 2).ToString("X");
+            }
+
+            return null;
+        }
     }
 }

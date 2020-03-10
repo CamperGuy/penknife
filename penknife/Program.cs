@@ -32,6 +32,9 @@ namespace penknife
                         case "count":
                             Console.WriteLine("> " + Functions.Count(args[1], args[2].ToCharArray()));
                             break;
+                        case "convert":
+                            Console.WriteLine(Functions.ConvertBase(args[1], args[2]));
+                            break;
                     }
                 }
             }
