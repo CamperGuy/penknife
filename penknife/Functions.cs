@@ -127,63 +127,43 @@ namespace penknife
             return uppercase.ToLower();
         }
 
-        public static string ASCII(string characters)
+        public static string CharBytes(string characters, byte[] bytearray)
         {
             string bytecodes = "";
-            byte[] asciiBytes = Encoding.ASCII.GetBytes(characters);
-            
-            for (int i = 0; i < asciiBytes.Length; i++)
-            {
-                if (i == 0)
-                {
-                    bytecodes += asciiBytes[i].ToString() + " |  ";
-                    Console.Write(" " + characters.ToCharArray()[i] + " |  ");
-                }
-                else
-                {
-                    if (asciiBytes[i].ToString().Length == 1)
-                        bytecodes += "  | " + asciiBytes[i].ToString() + " |  ";
-                    else if (asciiBytes[i].ToString().Length == 2)
-                        bytecodes += "  |" + asciiBytes[i].ToString() + " |  ";
-                    else
-                        bytecodes += "  |" + asciiBytes[i].ToString() + "|  ";
 
-                    Console.Write("  | " + characters.ToCharArray()[i] + " |  ");
+            if (bytearray.Length == 1)
+            {
+                Console.Write(" " + characters);
+                bytecodes += bytearray[0];
+            }
+            else
+            {
+                for (int i = 0; i < characters.ToCharArray().Length; i++)
+                {
+                    if (i == 0)
+                    {
+                        Console.Write(" " + characters.ToCharArray()[i] + " | ");
+                        if (bytearray[0].ToString().Length == 1)
+                            bytecodes += " " + bytearray[i].ToString() + " | ";
+                        else if (bytearray[0].ToString().Length == 2)
+                            bytecodes += bytearray[i].ToString() + " | ";
+                        else
+                            bytecodes += bytearray[i].ToString() + "| ";
+                    }
+                    else
+                    {
+                        if (bytearray[i].ToString().Length == 1)
+                            bytecodes += "  | " + bytearray[i].ToString() + " |  ";
+                        else if (bytearray[i].ToString().Length == 2)
+                            bytecodes += "  |" + bytearray[i].ToString() + " |  ";
+                        else
+                            bytecodes += "  |" + bytearray[i].ToString() + "|  ";
+
+                        Console.Write("  | " + characters.ToCharArray()[i] + " |  ");
+                    }
                 }
             }
-            Console.Write("\n");
-            return bytecodes;
-        }
 
-        public static string UTF8(string characters)
-        {
-            string bytecodes = "";
-            byte[] utf8Bytes = Encoding.UTF8.GetBytes(characters);
-
-            for (int i = 0; i < characters.ToCharArray().Length; i++)
-            {
-                if (i == 0)
-                {
-                    Console.Write(" " + characters.ToCharArray()[i] + " | ");
-                    if (utf8Bytes[0].ToString().Length == 1)
-                        bytecodes += " " + utf8Bytes[i].ToString() + " | ";
-                    else if (utf8Bytes[0].ToString().Length == 2)
-                        bytecodes += utf8Bytes[i].ToString() + " | ";
-                    else
-                        bytecodes += utf8Bytes[i].ToString() + "| ";
-                }
-                else
-                {
-                    if (utf8Bytes[i].ToString().Length == 1)
-                        bytecodes += "  | " + utf8Bytes[i].ToString() + " |  ";
-                    else if (utf8Bytes[i].ToString().Length == 2)
-                        bytecodes += "  |" + utf8Bytes[i].ToString() + " |  ";
-                    else
-                        bytecodes += "  |" + utf8Bytes[i].ToString() + "|  ";
-
-                    Console.Write("  | " + characters.ToCharArray()[i] + " |  ");
-                }
-            }
             Console.Write("\n");
             return bytecodes;
         }

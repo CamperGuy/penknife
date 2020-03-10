@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 
 namespace penknife
 {
@@ -41,10 +42,10 @@ namespace penknife
                             Console.WriteLine("> " + Functions.Lower(args[1]));
                             break;
                         case "ascii":
-                            Console.WriteLine(Functions.ASCII(args[1]));
+                            Console.WriteLine(Functions.CharBytes(args[1], Encoding.ASCII.GetBytes(args[1].ToString())));
                             break;
                         case "utf":
-                            Console.WriteLine(Functions.UTF8(args[1]));
+                            Console.WriteLine(Functions.CharBytes(args[1], Encoding.UTF8.GetBytes(args[1].ToString())));
                             break;
                         default:
                             Console.WriteLine("Unrecognised parameter, please use -h for a list of methods");
