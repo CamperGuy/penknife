@@ -57,6 +57,7 @@ namespace penknife
         {
             Base startBase;
             Base endBase;
+            bool defaultStart10 = false;
 
             if (number.StartsWith("0b") || number.StartsWith("bin"))
                 startBase = Base.base2;
@@ -65,7 +66,10 @@ namespace penknife
             else if (number.StartsWith("0x") || number.StartsWith("hex"))
                 startBase = Base.base16;
             else
+            {
+                defaultStart10 = true;
                 startBase = Base.base10;
+            }
 
             if (format.StartsWith("0b") || format.StartsWith("bin") || format.StartsWith("02"))
                 endBase = Base.base2;
@@ -75,7 +79,9 @@ namespace penknife
                 endBase = Base.base16;
             else
                 endBase = Base.base10;
-            number = number.Remove(0, 2);
+
+            if (!defaultStart10)
+                number = number.Remove(0, 2);
 
             try
             {
@@ -109,7 +115,10 @@ namespace penknife
                     Console.WriteLine("Hex: " + number);
                     return "Decimal: " + Convert.ToInt32(number, 16).ToString("D");
                 }
-                return null;
+                else
+                {
+                    return "Trying to convert number into the same format.";
+                }
             }
             catch(System.FormatException)
             {
@@ -117,15 +126,9 @@ namespace penknife
             }
         }
 
-        public static string Caps(string lowercase)
-        {
-            return lowercase.ToUpper();
-        }
+        public static string Caps(string lowercase) { return lowercase.ToUpper(); }
 
-        public static string Lower(string uppercase)
-        {
-            return uppercase.ToLower();
-        }
+        public static string Lower(string uppercase) { return uppercase.ToLower(); }
 
         public static string CharBytes(string characters, byte[] bytearray)
         {

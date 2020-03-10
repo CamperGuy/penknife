@@ -93,14 +93,14 @@ namespace penknife
             Console.WriteLine("      Converts each character into its UTF-8 code\n");
 
             Console.WriteLine("convert [number] [base]");
-            Console.WriteLine("      Converts a number from one base into another. \n        To define the starting base use:");
-            Console.WriteLine("          Binary:      0b / bin");
-            Console.WriteLine("          Decimal:     0d / dec / empty");
-            Console.WriteLine("          Hexadecimal: 0x / hex");
-            Console.WriteLine("      To define the convert-to base use:");
-            Console.WriteLine("          Binary:      0b / bin / 02");
-            Console.WriteLine("          Decimal:     0d / dec / 10");
-            Console.WriteLine("          Hexadecimal: 0x / hex / 16");
+            Console.WriteLine("      Converts a number from one base into another. \n         To define the starting base use:");
+            Console.WriteLine("            Binary:      0b / bin");
+            Console.WriteLine("            Decimal:     0d / dec / [empty]");
+            Console.WriteLine("            Hexadecimal: 0x / hex");
+            Console.WriteLine("         To define the convert-to base use:");
+            Console.WriteLine("            Binary:      0b / bin / 02");
+            Console.WriteLine("            Decimal:     0d / dec / 10");
+            Console.WriteLine("            Hexadecimal: 0x / hex / 16");
         }
     }
 }
