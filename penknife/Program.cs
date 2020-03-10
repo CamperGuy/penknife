@@ -73,22 +73,25 @@ namespace penknife
 
         static void HelpDisplay()
         {
-            Console.WriteLine("-help  /  -h");
+            Console.WriteLine("help  /  h");
             Console.WriteLine("      This Menu\n");
 
-            Console.WriteLine("-length -string");
+            Console.WriteLine("length [string]");
             Console.WriteLine("      Returns the length of a string. To count something longer than a\n      word, concatinate the text in quotation marks\n");
 
-            Console.WriteLine("-reverse -string");
+            Console.WriteLine("reverse [string]");
             Console.WriteLine("      Reverses a sequence of characters\n");
 
-            Console.WriteLine("-count -string -sequence");
+            Console.WriteLine("count [string] [sequence]");
             Console.WriteLine("      Counts the amount of occurances in the string \n      To count something in longer than a word, concatinate the text  \n      in quotation marks\n");
 
-            Console.WriteLine("-ascii -string");
+            Console.WriteLine("ascii [string]");
             Console.WriteLine("      Converts each character into its ASCII code\n");
 
-            Console.WriteLine("-convert -number -base");
+            Console.WriteLine("utf [string]");
+            Console.WriteLine("      Converts each character into its UTF-8 code\n");
+
+            Console.WriteLine("convert [number] [base]");
             Console.WriteLine("      Converts a number from one base into another. \n        To define the starting base use:");
             Console.WriteLine("          Binary:      0b / bin");
             Console.WriteLine("          Decimal:     0d / dec / empty");
