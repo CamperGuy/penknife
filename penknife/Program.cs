@@ -69,6 +69,14 @@ namespace penknife
                             break;
                     }
                     break;
+                case 4:
+                    switch(args[0])
+                    {
+                        case "replace":
+                            Console.WriteLine(Functions.Replace(args[1], args[2], args[3]));
+                            break;
+                    }
+                    break;
                 default:
                     Console.WriteLine("Internal Error. Program Line 60");
                     break;
@@ -104,7 +112,11 @@ namespace penknife
             Console.WriteLine("         To define the convert-to base use:");
             Console.WriteLine("            Binary:      0b / bin / 02");
             Console.WriteLine("            Decimal:     0d / dec / 10 / [empty]");
-            Console.WriteLine("            Hexadecimal: 0x / hex / 16");
+            Console.WriteLine("            Hexadecimal: 0x / hex / 16\n");
+
+            Console.WriteLine("replace [string] [pattern] [replacement]");
+            Console.WriteLine("      Replaces a sequence of characters with another");
+            Console.WriteLine("      sequence in a given string");
         }
     }
 }

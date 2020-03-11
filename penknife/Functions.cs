@@ -170,5 +170,10 @@ namespace penknife
             Console.Write("\n");
             return bytecodes;
         }
+
+        public static string Replace(string word, string pattern, string replacement)
+        {
+            return word.Replace(pattern, replacement);
+        }
     }
 }
