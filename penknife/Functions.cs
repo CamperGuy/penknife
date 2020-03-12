@@ -209,7 +209,9 @@ namespace penknife
             }
             else
             {
-                
+                ShellHelper.CMD("curl http://ipinfo.io.ip");
+                ip = System.IO.File.ReadLines("ip.txt").First();
+                System.IO.File.Delete("ip.txt");
             }
             return ip;
         }
@@ -231,6 +233,22 @@ namespace penknife
                     RedirectStandardOutput = false,
                     UseShellExecute = true,
                     CreateNoWindow = false,
+                }
+            };
+            process.Start();
+            process.WaitForExit();
+            return null;
+        }
+        public static string CMD(this string cmd)
+        {
+            var escapedArgs = cmd.Replace("\"", "\\\"");
+
+            var process = new Process()
+            {
+                StartInfo = new ProcessStartInfo
+                {
+                    FileName = "cmd.exe",
+                    Arguments = (@"/c curl http://ipinfo.io/ip > ip.txt")
                 }
             };
             process.Start();
