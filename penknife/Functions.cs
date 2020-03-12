@@ -1,5 +1,8 @@
 ﻿using System;
-using System.Text;
+using System.Linq;
+using System.Net.NetworkInformation;
+using System.Net.Sockets;
+using System.Diagnostics;
 
 namespace penknife
 {
@@ -14,7 +17,7 @@ namespace penknife
 
         public Functions()
         {
-            
+
         }
 
         public static int Length(string word)
@@ -42,7 +45,7 @@ namespace penknife
             }
             else
             {
-                for (int i = 0; i < chararray.Length-1; i++)
+                for (int i = 0; i < chararray.Length - 1; i++)
                 {
                     string sub = word.Substring(i, characters.Length);
                     string test = new string(characters);
@@ -120,7 +123,7 @@ namespace penknife
                     return "Trying to convert number into the same format.";
                 }
             }
-            catch(System.FormatException)
+            catch (System.FormatException)
             {
                 return "Invalid format given. Please double-check your inputs";
             }
@@ -174,6 +177,54 @@ namespace penknife
         public static string Replace(string word, string pattern, string replacement)
         {
             return word.Replace(pattern, replacement);
+        }
+
+        public static string GetLocalIP()
+        {
+            string ipAddress = "Error";
+            var firstUpInterface = NetworkInterface.GetAllNetworkInterfaces()
+                .OrderByDescending(c => c.Speed)
+                .FirstOrDefault(c => c.NetworkInterfaceType != NetworkInterfaceType.Loopback && c.OperationalStatus == OperationalStatus.Up);
+            if (firstUpInterface != null)
+            {
+                var props = firstUpInterface.GetIPProperties();
+                // get first IPV4 address assigned to this interface
+                var firstIpV4Address = props.UnicastAddresses
+                    .Where(c => c.Address.AddressFamily == AddressFamily.InterNetwork)
+                    .Select(c => c.Address)
+                    .FirstOrDefault();
+                ipAddress = firstIpV4Address.ToString();
+            }
+            return ipAddress;
+        }
+
+        public static string GetPublicIP()
+        { 
+            ShellHelper.Bash("curl http://ipinfo.io/ip > ip.txt");
+            return System.IO.File.ReadLines("ip.txt").First();
+        }
+    }
+
+    public static class ShellHelper
+    {
+        public static string Bash(this string cmd)
+        {
+            var escapedArgs = cmd.Replace("\"", "\\\"");
+
+            var process = new Process()
+            {
+                StartInfo = new ProcessStartInfo
+                {
+                    FileName = "/bin/bash",
+                    Arguments = $"-c \"{escapedArgs}\"",
+                    RedirectStandardOutput = false,
+                    UseShellExecute = true,
+                    CreateNoWindow = false,
+                }
+            };
+            process.Start();
+            process.WaitForExit();
+            return null;
         }
     }
 }

@@ -21,6 +21,18 @@ namespace penknife
                         case "h":
                             HelpDisplay();
                             break;
+                        case "iplocal":
+                            Console.WriteLine("> " + Functions.GetLocalIP());
+                            break;
+                        case "localip":
+                            Console.WriteLine("> " + Functions.GetLocalIP());
+                            break;
+                        case "ippublic":
+                            Console.WriteLine("> " + Functions.GetPublicIP());
+                            break;
+                        case "publicip":
+                            Console.WriteLine("> " + Functions.GetPublicIP());
+                            break;
                         default:
                             Console.WriteLine("Unrecognised parameter, please use -h for a list of methods");
                             break;
@@ -64,6 +76,9 @@ namespace penknife
                         case "convert":
                             Console.WriteLine(Functions.ConvertBase(args[1], args[2]));
                             break;
+                        case "replace":
+                            Console.WriteLine("> " + Functions.Replace(args[1], args[2], ""));
+                            break;
                         default:
                             Console.WriteLine("Unrecognised parameter, please use -h for a list of methods");
                             break;
@@ -73,7 +88,7 @@ namespace penknife
                     switch(args[0])
                     {
                         case "replace":
-                            Console.WriteLine(Functions.Replace(args[1], args[2], args[3]));
+                            Console.WriteLine("> " + Functions.Replace(args[1], args[2], args[3]));
                             break;
                     }
                     break;
