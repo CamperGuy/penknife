@@ -188,7 +188,6 @@ namespace penknife
             if (firstUpInterface != null)
             {
                 var props = firstUpInterface.GetIPProperties();
-                // get first IPV4 address assigned to this interface
                 var firstIpV4Address = props.UnicastAddresses
                     .Where(c => c.Address.AddressFamily == AddressFamily.InterNetwork)
                     .Select(c => c.Address)
@@ -200,7 +199,7 @@ namespace penknife
 
         public static string GetPublicIP()
         {
-            string ip = "";
+            string ip;
             if (!OperatingSystem.IsWindows())
             {
                 ShellHelper.Bash("curl http://ipinfo.io/ip > ip.txt");
@@ -209,7 +208,7 @@ namespace penknife
             }
             else
             {
-                ShellHelper.CMD("curl http://ipinfo.io.ip");
+                ShellHelper.CMD("/c curl http://ipinfo.io/ip > ip.txt");
                 ip = System.IO.File.ReadLines("ip.txt").First();
                 System.IO.File.Delete("ip.txt");
             }
@@ -241,14 +240,12 @@ namespace penknife
         }
         public static string CMD(this string cmd)
         {
-            var escapedArgs = cmd.Replace("\"", "\\\"");
-
             var process = new Process()
             {
                 StartInfo = new ProcessStartInfo
                 {
                     FileName = "cmd.exe",
-                    Arguments = (@"/c curl http://ipinfo.io/ip > ip.txt")
+                    Arguments = (@cmd)
                 }
             };
             process.Start();

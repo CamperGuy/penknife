@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\helbl\\Source\\Repos\\penknife\\penknife\\penknife.csproj": {}
+    "/Users/joel/Documents/Projects/penknife/penknife/penknife.csproj": {}
   },
   "projects": {
-    "C:\\Users\\helbl\\Source\\Repos\\penknife\\penknife\\penknife.csproj": {
+    "/Users/joel/Documents/Projects/penknife/penknife/penknife.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\helbl\\Source\\Repos\\penknife\\penknife\\penknife.csproj",
+        "projectUniqueName": "/Users/joel/Documents/Projects/penknife/penknife/penknife.csproj",
         "projectName": "penknife",
-        "projectPath": "C:\\Users\\helbl\\Source\\Repos\\penknife\\penknife\\penknife.csproj",
-        "packagesPath": "C:\\Users\\helbl\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\helbl\\Source\\Repos\\penknife\\penknife\\obj\\",
+        "projectPath": "/Users/joel/Documents/Projects/penknife/penknife/penknife.csproj",
+        "packagesPath": "/Users/joel/.nuget/packages/",
+        "outputPath": "/Users/joel/Documents/Projects/penknife/penknife/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\helbl\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/joel/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -52,7 +50,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.102/RuntimeIdentifierGraph.json"
         }
       }
     }

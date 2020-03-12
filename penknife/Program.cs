@@ -113,9 +113,10 @@ namespace penknife
 
         static void HelpDisplay()
         {
-            Console.WriteLine("help  /  h");
+            Console.WriteLine("help  |  h");
             Console.WriteLine("      This Menu\n");
 
+            Console.WriteLine("---- String Commands ----");
             Console.WriteLine("length [string]");
             Console.WriteLine("      Returns the length of a string. To count something longer than a\n      word, concatinate the text in quotation marks\n");
 
@@ -131,6 +132,18 @@ namespace penknife
             Console.WriteLine("utf [string]");
             Console.WriteLine("      Converts each character into its UTF-8 code\n");
 
+            Console.WriteLine("replace [string] [pattern] [replacement]");
+            Console.WriteLine("      Replaces a sequence of characters with another");
+            Console.WriteLine("      sequence in a given string\n\n");
+
+            Console.WriteLine("---- Finding information ----");
+            Console.WriteLine("privateip | ipprivate");
+            Console.WriteLine("      Returns the IPv4 Address used to address \n      your machine in the local network\n");
+            Console.WriteLine("publicip | ippublic");
+            Console.WriteLine("      Returns the IPv4 Address used to address \n      your host on the wider Internet\n\n");
+
+
+            Console.WriteLine("---- Low-level commands ----");
             Console.WriteLine("convert [number] [base]");
             Console.WriteLine("      Converts a number from one base into another.");
             Console.WriteLine("         To define the starting base use:");
@@ -142,9 +155,6 @@ namespace penknife
             Console.WriteLine("            Decimal:     0d / dec / 10 / [empty]");
             Console.WriteLine("            Hexadecimal: 0x / hex / 16\n");
 
-            Console.WriteLine("replace [string] [pattern] [replacement]");
-            Console.WriteLine("      Replaces a sequence of characters with another");
-            Console.WriteLine("      sequence in a given string");
         }
     }
 }
