@@ -199,11 +199,22 @@ namespace penknife
         }
 
         public static string GetPublicIP()
-        { 
-            ShellHelper.Bash("curl http://ipinfo.io/ip > ip.txt");
-            return System.IO.File.ReadLines("ip.txt").First();
+        {
+            string ip = "";
+            if (!OperatingSystem.IsWindows())
+            {
+                ShellHelper.Bash("curl http://ipinfo.io/ip > ip.txt");
+                ip = System.IO.File.ReadLines("ip.txt").First();
+                System.IO.File.Delete("ip.txt");
+            }
+            else
+            {
+                
+            }
+            return ip;
         }
     }
+
 
     public static class ShellHelper
     {

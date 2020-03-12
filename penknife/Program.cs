@@ -1,8 +1,21 @@
 ﻿using System;
 using System.Text;
+using System.Runtime.InteropServices;
 
 namespace penknife
 {
+    public static class OperatingSystem
+    {
+        public static bool IsWindows() =>
+            RuntimeInformation.IsOSPlatform(OSPlatform.Windows);
+
+        public static bool IsMacOS() =>
+            RuntimeInformation.IsOSPlatform(OSPlatform.OSX);
+
+        public static bool IsLinux() =>
+            RuntimeInformation.IsOSPlatform(OSPlatform.Linux);
+    }
+
     class Program
     {
         static void Main(string[] args)
