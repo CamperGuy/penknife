@@ -118,13 +118,13 @@ namespace penknife
 
             Console.WriteLine("---- String Commands ----");
             Console.WriteLine("length [string]");
-            Console.WriteLine("      Returns the length of a string. To count something longer than a\n      word, concatinate the text in quotation marks\n");
+            Console.WriteLine("      Returns the length of a string. To count something longer than a\n      word, concatenate the text in quotation marks\n");
 
             Console.WriteLine("reverse [string]");
             Console.WriteLine("      Reverses a sequence of characters\n");
 
             Console.WriteLine("count [string] [sequence]");
-            Console.WriteLine("      Counts the amount of occurances in the string \n      To count something in longer than a word, concatinate the text  \n      in quotation marks\n");
+            Console.WriteLine("      Counts the amount of occurrences in the string \n      To count something in longer than a word, concatenate the text  \n      in quotation marks\n");
 
             Console.WriteLine("ascii [string]");
             Console.WriteLine("      Converts each character into its ASCII code\n");
